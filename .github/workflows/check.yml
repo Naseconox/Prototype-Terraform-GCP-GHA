@@ -37,3 +37,6 @@ jobs:
 
       - name: Print environment variables
         run: env
+
+      - name: Check some files
+        run: cat $GITHUB_ENV
