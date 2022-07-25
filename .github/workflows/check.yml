@@ -43,7 +43,6 @@ jobs:
           env
           echo "* :rocket:" >> $GITHUB_STEP_SUMMARY
 
-
       - name: Check secrets
         env:
           TEST_SECRET: ${{ secrets.TEST_SECRET }}
