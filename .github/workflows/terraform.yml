@@ -9,11 +9,11 @@ on:
   #  - "main"
   # pull_request:
   workflow_dispatch:
-    inputs:
-      environment:
-        description: 'Environment to deploy'
-        required: true
-        default: 'stage'
+    # inputs:
+    #   environment:
+    #     description: 'Environment to deploy'
+    #     required: true
+    #     default: 'stage'
 
 permissions:
   contents: read
@@ -22,7 +22,7 @@ jobs:
   terraform:
     name: Terraform
     runs-on: ubuntu-latest
-    environment: ${{ github.events.inputs.environment || env.default_environment }}
+    environment: ${{ env.default_environment }}
 
     # Use the Bash shell regardless whether the GitHub Actions runner is
     # ubuntu-latest, macos-latest, or windows-latest
