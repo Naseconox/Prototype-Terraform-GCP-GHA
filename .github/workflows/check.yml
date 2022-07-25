@@ -50,7 +50,8 @@ jobs:
           ANOTHER_TEST_SECRET: ${{ secrets.ANOTHER_TEST_SECRET }}
         run: |
           mkdir ./secrets
-          echo $TEST_SECRET > ./secrets/secrets.txt
-          echo "${{ TEST_SECRET_2 }}"
-          echo "${{ ANOTHER_TEST_SECRET }}" >> ./secrets/secrets.txt
+          echo "TEST_SECRET: $TEST_SECRET" > ./secrets/secrets.txt
+          echo "$TEST_SECRET_2"
+          echo "ANOTHER_TEST_SECRET: $ANOTHER_TEST_SECRET" >> ./secrets/secrets.txt
+          cat ./secrets/secrets.txt
           echo "* :rocket:" >> $GITHUB_STEP_SUMMARY
