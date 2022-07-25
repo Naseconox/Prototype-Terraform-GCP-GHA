@@ -39,16 +39,12 @@ jobs:
       env:
         GCP_KEY_FILE: ${{ secrets.GCP_KEY_FILE }}
       run: |
-        ls
-        mkdir ./secrets
-        ls
-        ls ./secrets
-        echo $GCP_KEY_FILE > ./secrets/gcp-key-file.json
-        ls ./secrets
+        mkdir secrets
+        echo $GCP_KEY_FILE > secrets/gcp-key-file.json
 
     # Install the latest version of Terraform CLI
     - name: Setup Terraform
-      uses: hashicorp/setup-terraform@v1
+      uses: hashicorp/setup-terraform@v2
 
     # Initialize a new or existing Terraform working directory by creating
     # initial files, loading any remote state, downloading modules, etc.
