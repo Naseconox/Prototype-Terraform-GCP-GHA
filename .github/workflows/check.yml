@@ -46,12 +46,11 @@ jobs:
       - name: Check secrets
         env:
           TEST_SECRET: ${{ secrets.TEST_SECRET }}
-        with:
-          test_secret_2: ${{ secrets.TEST_SECRET_2 }}
-          another_test_secret: ${{ secrets.ANOTHER_TEST_SECRET }}
+          TEST_SECRET_2: ${{ secrets.TEST_SECRET_2 }}
+          ANOTHER_TEST_SECRET: ${{ secrets.ANOTHER_TEST_SECRET }}
         run: |
           mkdir ./secrets
           echo $TEST_SECRET > ./secrets/secrets.txt
-          echo "${{ test_secret_2 }}"
-          echo "${{ another_test_secret }}" >> ./secrets/secrets.txt
+          echo "${{ TEST_SECRET_2 }}"
+          echo "${{ ANOTHER_TEST_SECRET }}" >> ./secrets/secrets.txt
           echo "* :rocket:" >> $GITHUB_STEP_SUMMARY
