@@ -1,6 +1,6 @@
 name: Terraform
 
-env:
+# env:
   # default_environment: "stage"
 
 on:
