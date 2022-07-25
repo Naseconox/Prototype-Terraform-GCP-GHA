@@ -59,6 +59,9 @@ jobs:
     - name: Terraform Plan
       run: terraform plan -input=false
 
+    - name: Terraform Destroy
+      run: terraform destroy -auto-approve -input=false
+
     # On push to "main", build or change infrastructure according to Terraform
     # configuration files
     # Note: It is recommended to set up a required "strict" status check in
@@ -68,6 +71,3 @@ jobs:
     - name: Terraform Apply
       # if: github.ref == 'refs/heads/"main"' && github.event_name == 'push'
       run: terraform apply -auto-approve -input=false
-
-    - name: Terraform Destroy
-      run: terraform destroy -auto-approve -input=false
