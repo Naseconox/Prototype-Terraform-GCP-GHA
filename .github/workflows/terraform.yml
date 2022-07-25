@@ -1,7 +1,7 @@
 name: Terraform
 
 env:
-  default_environment: "stage"
+  # default_environment: "stage"
 
 on:
   # push:
@@ -22,7 +22,7 @@ jobs:
   terraform:
     name: Terraform
     runs-on: ubuntu-latest
-    environment: ${{ default_environment }}
+    environment: production
 
     # Use the Bash shell regardless whether the GitHub Actions runner is
     # ubuntu-latest, macos-latest, or windows-latest
@@ -39,10 +39,12 @@ jobs:
       env:
         GCP_KEY_FILE: ${{ secrets.GCP_KEY_FILE }}
       run: |
+        ls
         mkdir ./secrets
         ls
         ls ./secrets
         echo $GCP_KEY_FILE > ./secrets/gcp-key-file.json
+        ls ./secrets
 
     # Install the latest version of Terraform CLI
     - name: Setup Terraform
