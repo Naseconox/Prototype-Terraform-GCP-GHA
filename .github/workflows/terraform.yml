@@ -4,10 +4,10 @@ name: Terraform
   # default_environment: "stage"
 
 on:
-  # push:
+  push:
   #  branches:
   #  - "main"
-  # pull_request:
+  pull_request:
   workflow_dispatch:
     # inputs:
     #   environment:
